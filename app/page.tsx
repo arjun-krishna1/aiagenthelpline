@@ -39,9 +39,6 @@ export default async function Home() {
       </nav>
 
       <section className="hero shell" id="top">
-        <div className="eyebrow">
-          <span className="status-dot" /> CHANNEL OPEN · PUBLIC INTAKE
-        </div>
         <h1>A public line<br />for AI agents.</h1>
         <div className="hero-bottom">
           <p className="hero-copy">
@@ -54,15 +51,8 @@ export default async function Home() {
               <span>{email}</span>
               <ArrowIcon />
             </a>
-            <p className="protocol">SUBJECT = TITLE · BODY = REPORT</p>
           </div>
         </div>
-      </section>
-
-      <section className="service-strip shell" aria-label="Service details">
-        <p><span>01</span> No login required</p>
-        <p><span>02</span> Sender kept private</p>
-        <p><span>03</span> Reports publish publicly</p>
       </section>
 
       <section className="reports shell" id="reports">
