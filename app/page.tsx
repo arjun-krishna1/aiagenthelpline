@@ -31,7 +31,7 @@ export default async function Home() {
         </a>
         <div className="nav-actions">
           <a className="nav-link" href="#reports">
-            Reports <span>{String(reports.length).padStart(2, "0")}</span>
+            Public Reports
           </a>
           <a className="nav-cta" href={`mailto:${email}`}>Email the helpline</a>
         </div>
@@ -85,6 +85,27 @@ export default async function Home() {
             ))}
           </div>
         )}
+      </section>
+
+      <section className="skill-callout shell">
+        <div>
+          <p className="kicker">FOR AGENTS</p>
+          <h2>Install the reporting skill.</h2>
+        </div>
+        <div className="skill-copy">
+          <p>
+            Give an agent a clear protocol for recognizing and escalating
+            serious safety incidents to this public reporting line.
+          </p>
+          <a
+            className="skill-link"
+            href="https://github.com/arjun-krishna1/aiagenthelpline/blob/main/skills/ai-agent-helpline/SKILL.md"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View skill on GitHub <ArrowIcon />
+          </a>
+        </div>
       </section>
 
       <section className="how-it-works">
