@@ -12,6 +12,7 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
+  min-width: 0;
   background: var(--white);
   color: var(--black);
   font-family: var(--font-sans), Arial, sans-serif;
@@ -19,6 +20,7 @@ body {
 }
 
 a { color: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
 .shell { width: min(1240px, calc(100% - 48px)); margin-inline: auto; }
 
 .nav {
@@ -32,7 +34,7 @@ a { color: inherit; }
 
 .brand, .nav-link, .nav-actions { display: flex; align-items: center; }
 .brand { text-decoration: none; font-weight: 520; }
-.nav-actions { gap: 28px; }
+.nav-actions { min-width: 0; gap: 28px; }
 .nav-link { gap: 7px; text-decoration: none; color: #3f4245; }
 .nav-link span { color: var(--gray); font: 500 10px/1 var(--font-mono), monospace; }
 .github-link {
@@ -162,28 +164,55 @@ footer span:last-child { text-align: right; }
 @media (max-width: 800px) {
   .shell { width: min(100% - 28px, 1240px); }
   .nav { height: 64px; }
+  .brand { font-size: 12px; white-space: nowrap; }
   .nav-link { display: none; }
   .skill-nav { display: flex; }
   .nav-cta { display: none; }
   .nav-actions { gap: 18px; }
+  .github-link { width: 44px; height: 44px; }
+  .github-link svg { width: 19px; height: 19px; }
   .hero { padding: 78px 0 60px; }
-  h1 { font-size: clamp(54px, 17vw, 82px); }
+  h1 { max-width: 100%; font-size: clamp(50px, 16vw, 82px); overflow-wrap: anywhere; }
   .hero-bottom { grid-template-columns: 1fr; gap: 42px; margin-top: 58px; }
   .hero-copy { font-size: 16px; }
+  .email-button { min-height: 56px; }
   .reports { padding: 90px 0 100px; }
   .count { display: none; }
-  .report { grid-template-columns: 1fr; gap: 20px; }
+  .section-heading { padding-bottom: 22px; }
+  .report { grid-template-columns: 1fr; gap: 18px; padding: 28px 0 34px; }
+  .report-meta { justify-content: space-between; padding-top: 0; }
+  .report-content h3 { font-size: 24px; }
+  .report-content p { font-size: 15px; line-height: 1.6; overflow-wrap: anywhere; }
   .skill-callout { grid-template-columns: 1fr; gap: 42px; padding-block: 66px; }
   .skill-copy { align-self: auto; }
+  .skill-link { width: 100%; min-height: 50px; justify-content: space-between; }
   .how-grid { grid-template-columns: 1fr; }
   .how-heading { padding: 66px 0 52px; border-right: 0; border-bottom: 1px solid var(--line); }
   .steps { grid-template-columns: 1fr; }
-  .step { min-height: 220px; padding: 30px 0; }
+  .step { min-height: 190px; padding: 30px 0; }
   .step + .step { border-left: 0; border-top: 1px solid var(--line); }
-  .step h3 { margin-top: 72px; }
-  .notice { grid-template-columns: 1fr; gap: 12px; }
-  footer { grid-template-columns: 1fr; gap: 10px; padding-block: 28px; }
-  footer span:last-child { text-align: left; }
+  .step h3 { margin-top: 58px; }
+  .notice { grid-template-columns: 1fr; gap: 12px; padding-block: 28px; }
+  .notice p { overflow-wrap: anywhere; }
+  footer { min-height: 0; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 18px; padding-block: 28px; }
+  .footer-links { order: 3; width: 100%; justify-content: space-between; }
+  footer span:last-child { text-align: right; }
+}
+
+@media (max-width: 480px) {
+  .shell { width: calc(100% - 24px); }
+  .nav { height: 60px; }
+  .nav-actions { gap: 2px; }
+  .skill-nav { display: none; }
+  .hero { padding: 64px 0 52px; }
+  h1 { font-size: clamp(48px, 16.5vw, 70px); letter-spacing: -0.06em; }
+  .hero-bottom { gap: 34px; margin-top: 46px; }
+  .reports { padding: 76px 0 84px; }
+  h2 { font-size: clamp(38px, 12vw, 52px); }
+  .skill-callout { gap: 34px; padding-block: 56px; }
+  .how-heading { padding: 56px 0 42px; }
+  .step { min-height: 174px; }
+  .step h3 { margin-top: 48px; }
 }
 
 @media (prefers-reduced-motion: reduce) {
