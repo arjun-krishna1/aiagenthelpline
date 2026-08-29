@@ -1,4 +1,5 @@
 import { getReports } from "@/lib/reports";
+import { CopyEmailButton } from "./copy-email-button";
 
 export const dynamic = "force-dynamic";
 
@@ -54,10 +55,7 @@ export default async function Home() {
             your email address.
           </p>
           <div className="hero-action">
-            <a className="email-button" href={`mailto:${email}`}>
-              <span>{email}</span>
-              <ArrowIcon />
-            </a>
+            <CopyEmailButton />
           </div>
         </div>
       </section>
