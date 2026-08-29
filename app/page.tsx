@@ -27,7 +27,6 @@ export default async function Home() {
     <main>
       <nav className="nav shell">
         <a className="brand" href="#top" aria-label="AI Agent Helpline home">
-          <span className="brand-mark">AH</span>
           <span>AI Agent Helpline</span>
         </a>
         <div className="nav-actions">

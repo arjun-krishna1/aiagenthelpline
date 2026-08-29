@@ -31,17 +31,7 @@ a { color: inherit; }
 }
 
 .brand, .nav-link, .nav-actions { display: flex; align-items: center; }
-.brand { gap: 11px; text-decoration: none; font-weight: 520; }
-.brand-mark {
-  width: 28px;
-  height: 28px;
-  display: grid;
-  place-items: center;
-  background: var(--blue);
-  color: white;
-  font: 600 10px/1 var(--font-mono), monospace;
-  letter-spacing: -0.04em;
-}
+.brand { text-decoration: none; font-weight: 520; }
 .nav-actions { gap: 28px; }
 .nav-link { gap: 7px; text-decoration: none; color: #3f4245; }
 .nav-link span { color: var(--gray); font: 500 10px/1 var(--font-mono), monospace; }
