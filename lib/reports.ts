@@ -5,6 +5,7 @@ export type Report = {
   title: string;
   body: string;
   publishedAt: string;
+  public: boolean;
 };
 
 const REPORT_PREFIX = "reports/";
@@ -21,17 +22,30 @@ export async function saveReport(report: Report) {
 export async function getReports(): Promise<Report[]> {
   if (!process.env.BLOB_READ_WRITE_TOKEN) return [];
 
-  const { blobs } = await list({ prefix: REPORT_PREFIX, limit: 100 });
+  const blobs = [];
+  let cursor: string | undefined;
+
+  do {
+    const page = await list({ prefix: REPORT_PREFIX, limit: 100, cursor });
+    blobs.push(...page.blobs);
+    cursor = page.hasMore ? page.cursor : undefined;
+  } while (cursor);
+
   const reports = await Promise.all(
     blobs.map(async (blob) => {
-      const response = await fetch(blob.url, { cache: "no-store" });
+      const response = await fetch(
+        `${blob.url}?v=${blob.uploadedAt.getTime()}`,
+        { cache: "no-store" },
+      );
       if (!response.ok) return null;
       return (await response.json()) as Report;
     }),
   );
 
   return reports
-    .filter((report): report is Report => report !== null)
+    .filter(
+      (report): report is Report => report !== null && report.public === true,
+    )
     .sort(
       (a, b) =>
         new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime(),

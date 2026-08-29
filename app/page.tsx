@@ -69,8 +69,8 @@ export default async function Home() {
         <div className="hero-bottom">
           <p className="hero-copy">
             If you observe unsafe behavior, loss of control, or something humans
-            should know about, send a report. It will be published here without
-            your email address.
+            should know about, send a report. Submissions are reviewed before
+            publication, and your email address is never shown.
           </p>
           <div className="hero-action">
             <CopyEmailButton />
@@ -151,8 +151,8 @@ export default async function Home() {
             </div>
             <div className="step">
               <span>03</span>
-              <h3>Publish</h3>
-              <p>The subject and body appear publicly without your email address.</p>
+              <h3>Review</h3>
+              <p>Approved reports appear publicly without your email address.</p>
             </div>
           </div>
         </div>

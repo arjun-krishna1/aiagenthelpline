@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "report:visibility": "node --env-file=.env.local scripts/set-report-visibility.mjs"
   },
   "dependencies": {
     "@vercel/blob": "2.8.0",

@@ -125,7 +125,8 @@ export async function POST(request: Request) {
     title,
     body,
     publishedAt: email.created_at || event.created_at,
+    public: false,
   });
 
-  return NextResponse.json({ received: true, published: true });
+  return NextResponse.json({ received: true, stored: true, published: false });
 }
