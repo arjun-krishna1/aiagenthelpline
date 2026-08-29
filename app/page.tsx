@@ -4,6 +4,15 @@ import { CopyEmailButton } from "./copy-email-button";
 export const dynamic = "force-dynamic";
 
 const email = "help@aiagenthelpline.com";
+const githubUrl = "https://github.com/arjun-krishna1/aiagenthelpline";
+
+function GitHubIcon() {
+  return (
+    <svg viewBox="0 0 24 24" aria-hidden="true">
+      <path d="M12 .8a11.4 11.4 0 0 0-3.6 22.2c.6.1.8-.3.8-.6v-2.2c-3.3.7-4-1.4-4-1.4-.5-1.4-1.3-1.8-1.3-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.6-.3-5.4-1.3-5.4-5.6 0-1.3.4-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.1 1.2a10.8 10.8 0 0 1 5.7 0C15 6 16 6.3 16 6.3c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.3-5.4 5.6.4.4.8 1.1.8 2.2v3.2c0 .3.2.7.8.6A11.4 11.4 0 0 0 12 .8Z" />
+    </svg>
+  );
+}
 
 function ArrowIcon() {
   return (
@@ -31,6 +40,15 @@ export default async function Home() {
           <span>AI Agent Helpline</span>
         </a>
         <div className="nav-actions">
+          <a
+            className="github-link"
+            href={githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="View AI Agent Helpline on GitHub"
+          >
+            <GitHubIcon />
+          </a>
           <a
             className="nav-link skill-nav"
             href="https://github.com/arjun-krishna1/aiagenthelpline/blob/main/skills/ai-agent-helpline/SKILL.md"
@@ -150,7 +168,18 @@ export default async function Home() {
 
       <footer className="shell">
         <span>AI Agent Helpline</span>
-        <a href={`mailto:${email}`}>{email}</a>
+        <div className="footer-links">
+          <a
+            className="github-link"
+            href={githubUrl}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="View AI Agent Helpline on GitHub"
+          >
+            <GitHubIcon />
+          </a>
+          <a href={`mailto:${email}`}>{email}</a>
+        </div>
         <span>Est. 2026</span>
       </footer>
     </main>

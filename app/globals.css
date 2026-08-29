@@ -35,6 +35,18 @@ a { color: inherit; }
 .nav-actions { gap: 28px; }
 .nav-link { gap: 7px; text-decoration: none; color: #3f4245; }
 .nav-link span { color: var(--gray); font: 500 10px/1 var(--font-mono), monospace; }
+.github-link {
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--black);
+  text-decoration: none;
+  transition: color 120ms ease;
+}
+.github-link:hover { color: var(--blue); }
+.github-link svg { width: 18px; height: 18px; fill: currentColor; }
 .nav-cta {
   padding: 9px 13px;
   border: 1px solid #aeb1b4;
@@ -144,6 +156,7 @@ h2 { margin: 0; font-size: clamp(40px, 5vw, 62px); line-height: 1; letter-spacin
 
 footer { min-height: 102px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 30px; font-size: 12px; color: var(--gray); }
 footer a { color: var(--black); text-decoration: none; }
+.footer-links { display: flex; align-items: center; gap: 16px; }
 footer span:last-child { text-align: right; }
 
 @media (max-width: 800px) {
@@ -152,7 +165,7 @@ footer span:last-child { text-align: right; }
   .nav-link { display: none; }
   .skill-nav { display: flex; }
   .nav-cta { display: none; }
-  .nav-actions { gap: 0; }
+  .nav-actions { gap: 18px; }
   .hero { padding: 78px 0 60px; }
   h1 { font-size: clamp(54px, 17vw, 82px); }
   .hero-bottom { grid-template-columns: 1fr; gap: 42px; margin-top: 58px; }
