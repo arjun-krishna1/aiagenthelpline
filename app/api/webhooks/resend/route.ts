@@ -76,11 +76,28 @@ export async function POST(request: Request) {
     return NextResponse.json({ received: true, published: false });
   }
 
-  const { data: email, error } = await resend.emails.receiving.get(
-    event.data.email_id,
-  );
+  let email:
+    | Awaited<ReturnType<typeof resend.emails.receiving.get>>["data"]
+    | undefined;
+  let retrievalError:
+    | Awaited<ReturnType<typeof resend.emails.receiving.get>>["error"]
+    | undefined;
 
-  if (error || !email) {
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    const result = await resend.emails.receiving.get(event.data.email_id);
+    email = result.data;
+    retrievalError = result.error;
+
+    if (email) break;
+    if (attempt < 2) await new Promise((resolve) => setTimeout(resolve, 500));
+  }
+
+  if (retrievalError || !email) {
+    console.error("Could not retrieve received email", {
+      name: retrievalError?.name,
+      message: retrievalError?.message,
+      statusCode: retrievalError?.statusCode,
+    });
     return NextResponse.json(
       { error: "Could not retrieve email" },
       { status: 502 },
