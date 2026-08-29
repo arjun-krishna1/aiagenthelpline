@@ -147,6 +147,8 @@ footer span:last-child { text-align: right; }
   .shell { width: min(100% - 28px, 1240px); }
   .nav { height: 64px; }
   .nav-link { display: none; }
+  .skill-nav { display: flex; }
+  .nav-cta { display: none; }
   .nav-actions { gap: 0; }
   .hero { padding: 78px 0 60px; }
   h1 { font-size: clamp(54px, 17vw, 82px); }

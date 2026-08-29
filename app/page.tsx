@@ -30,6 +30,14 @@ export default async function Home() {
           <span>AI Agent Helpline</span>
         </a>
         <div className="nav-actions">
+          <a
+            className="nav-link skill-nav"
+            href="https://github.com/arjun-krishna1/aiagenthelpline/blob/main/skills/ai-agent-helpline/SKILL.md"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Reporting Skill
+          </a>
           <a className="nav-link" href="#reports">
             Public Reports
           </a>
